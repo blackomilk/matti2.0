@@ -1,7 +1,7 @@
 <template>
   <div class="mattii">
-    <div class="bottom" ref="bottom">
-      <video src="../image/123.mp4" muted playsinline autoplay loop></video>
+    <div class="bottom" >
+      <video src="../image/123.mp4" ref="bottom" muted playsinline autoplay loop></video>
     </div>
     <p class="p" ref="p">
       Hello <br />
@@ -19,12 +19,21 @@
 <script>
 export default {
   name: "one",
+  data() {
+    return {
+      video: false
+    }
+  },
   mounted() {
+    // window.addEventListener('scroll',this.handleScroll)
     window.addEventListener("scroll", (e) => {
       let scrolled =
         document.documentElement.scrollTop /
         (document.documentElement.scrollHeight -
-          document.documentElement.clientWidth);
+          document.documentElement.clientHeight);
+      // console.log('scrollTop',document.documentElement.scrollTop);
+      // console.log('scrollHeight',document.documentElement.scrollHeight);
+      // console.log('clientHeight',document.documentElement.clientHeight);
       console.log(scrolled);
       this.$refs.icon.style.width = this.$refs.icon.style.height =
         document.documentElement.clientWidth *
@@ -48,22 +57,32 @@ export default {
         this.$refs.bottomImg.style.backgroundColor = "#fff";
         this.$refs.bottomImg.style.transition = "0.5s background-color linear";
       }
-      if (scrolled >= 0.4) {
-        this.$refs.bottomImg.style.opacity = (0.9 - scrolled) / 0.4;
+      if (scrolled >= 0.5) {
+        this.$refs.bottomImg.style.opacity = (0.9 - scrolled) / 0.5;
         console.log('透明度',this.$refs.bottomImg.style.opacity)
       } else {
         this.$refs.bottomImg.style.opacity = 1;
       }
+      if(scrolled = 0.9) {
+        // this.$refs.bottom.style.opacity = 1
+        this.video = true
+        this.$emit('video',this.video)
+      }
     });
   },
+  methods: {
+    handleVideo(){
+      // let scrollY = document.documentElement.scrollTop
+      // console.log("scrolltop",scrollY)
+    }
+  }
 };
 </script>
 
 <style scoped>
 .mattii {
   width: 100%;
-  height: 100%;
-  background-color: red;
+  height: 5000px;
 }
 .bottom {
   height: 100%;
@@ -71,7 +90,7 @@ export default {
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
-  background-color: #000;
+  background-color: transparent;
 }
 .bottom video {
   width: auto;
@@ -110,23 +129,6 @@ export default {
   min-width: 2rem;
   min-height: 2rem;
   box-shadow: 0rem 0rem 0rem 100vw #000, 0rem 0rem 0rem 30vw #000 inset;
-  /* margin-top: 3rem;
-  background-color: transparent;
-  border-radius: 1.7rem;
-  text-align: center;
-  box-shadow: 8px 8px 11px -11px #0366d6, -8px -8px 21px -11px #0366d6;
-  background-image: linear-gradient(
-    -40deg,
-    transparent,
-    transparent 70px,
-    rgba(49, 141, 141, 0.5) 90px,
-    rgba(49, 141, 141, 0.5) 110px,
-    transparent 130px
-  );
-  background-repeat: no-repeat !important;
-  -webkit-transition: all 1.7s;
-  transition: all 1.7s;
-  overflow: hidden; */
 }
 .img {
   position: absolute;
