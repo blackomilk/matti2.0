@@ -63,10 +63,12 @@ export default {
       } else {
         this.$refs.bottomImg.style.opacity = 1;
       }
-      if(scrolled = 0.9) {
+      if(scrolled > 0.9) {
         // this.$refs.bottom.style.opacity = 1
         this.video = true
         this.$emit('video',this.video)
+      } else {
+        this.video = false
       }
     });
   },

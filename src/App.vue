@@ -2,8 +2,8 @@
   <div class="app">
     <Navbar />
     <Hi v-if="hiShow" ref="hi" />
-    <One v-else-if="oneShow" ref="one" @video="handleVideo"/>
-    <Two v-else-if="twoShow" ref="two"/>
+    <One v-else-if="oneShow" ref="one" @video="handleVideo" />
+    <Two v-else-if="twoShow" ref="two" />
   </div>
 </template>
 
@@ -29,26 +29,26 @@ export default {
     };
   },
   methods: {
-      handleVideo(video) {
-        // console.log(video)
-        if(video === true) {
+    handleVideo(video) {
+      console.log(video);
+      if (video === true) {
+        setTimeout(() => {
+          this.oneShow = false;
           setTimeout(() => {
-            this.oneShow = false
-            setTimeout(() => {
-              this.twoShow = true
-            }, 1000);
+            this.twoShow = true;
           }, 1000);
-        }
+        }, 1000);
       }
+    },
   },
   mounted() {
-    this.handleVideo()
+    this.handleVideo();
     this.$nextTick(() => {
       setTimeout(() => {
         this.$refs.hi.$refs.hii.style.opacity = "0";
         setTimeout(() => {
           this.hiShow = false;
-          this.oneShow = true
+          this.oneShow = true;
           setTimeout(() => {
             this.$refs.one.$refs.p.style.backgroundPositionX = "0%";
           }, 100);
