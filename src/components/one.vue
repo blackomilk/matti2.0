@@ -1,17 +1,26 @@
 <template>
   <div class="mattii">
-    <div class="bottom" >
-      <video src="../image/123.mp4" ref="bottom" muted playsinline autoplay loop></video>
-    </div>
-    <p class="p" ref="p">
-      Hello <br />
-      I'm Matti
-    </p>
-    <!-- <span>正在努力成为一名前端开发工程师</span>
+    <div class="stickyDiv">
+      <div class="video" ref="video">
+        <video
+          src="../image/123.mp4"
+          ref="video"
+          muted
+          playsinline
+          autoplay
+          loop
+        ></video>
+      </div>
+      <p class="p" ref="p">
+        Hello <br />
+        I'm Matti
+      </p>
+      <!-- <span>正在努力成为一名前端开发工程师</span>
       <span>©2020</span> -->
-    <div class="icon" ref="icon">
-      <div class="bottomImg" ref="bottomImg"></div>
-      <img class="img" ref="img" src="../image/mattti.png" alt="" />
+      <div class="icon" ref="icon" id="icon">
+        <div class="bottomImg" ref="bottomImg"></div>
+        <img class="img" ref="img" src="../image/mattti.png" alt="" />
+      </div>
     </div>
   </div>
 </template>
@@ -21,8 +30,8 @@ export default {
   name: "one",
   data() {
     return {
-      video: false
-    }
+      isShow: true,
+    };
   },
   mounted() {
     // window.addEventListener('scroll',this.handleScroll)
@@ -37,7 +46,7 @@ export default {
       console.log(scrolled);
       this.$refs.icon.style.width = this.$refs.icon.style.height =
         document.documentElement.clientWidth *
-          20 *
+          70 *
           (scrolled * scrolled * scrolled) +
         "px";
 
@@ -49,35 +58,36 @@ export default {
       }
       if (scrolled <= 0.2) {
         this.$refs.img.style.opacity = (scrolled - 0.1) / 0.1;
-        this.$refs.bottomImg.style.opacity = (scrolled - 0.1) / 0.1;
         this.$refs.bottomImg.style.backgroundColor = "transparent";
         this.$refs.bottomImg.style.transition = "0s background-color linear";
       } else {
         this.$refs.img.style.opacity = 1;
         this.$refs.bottomImg.style.backgroundColor = "#fff";
+
         this.$refs.bottomImg.style.transition = "0.5s background-color linear";
       }
       if (scrolled >= 0.5) {
-        this.$refs.bottomImg.style.opacity = (0.9 - scrolled) / 0.5;
-        console.log('透明度',this.$refs.bottomImg.style.opacity)
+        this.$refs.bottomImg.style.opacity = (0.7 - scrolled) / 0.2;
+        this.$refs.icon.classList.add("transparent");
       } else {
         this.$refs.bottomImg.style.opacity = 1;
       }
-      if(scrolled > 0.9) {
-        // this.$refs.bottom.style.opacity = 1
-        this.video = true
-        this.$emit('video',this.video)
+      if(scrolled > 0.7) {
+        this.$refs.video.style.opacity = (0.9 - scrolled) / 0.2
       } else {
-        this.video = false
+        this.$refs.video.style.opacity = 1
+      }
+      if (scrolled > 0.9) {
+        // this.$refs.bottom.style.opacity = 1
       }
     });
   },
   methods: {
-    handleVideo(){
+    handleVideo() {
       // let scrollY = document.documentElement.scrollTop
       // console.log("scrolltop",scrollY)
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -85,21 +95,31 @@ export default {
 .mattii {
   width: 100%;
   height: 5000px;
+  background-color: transparent;
 }
-.bottom {
+.stickyDiv {
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: transparent;
+}
+.video {
   height: 100%;
   width: 100%;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
   background-color: transparent;
+  z-index: 9;
 }
-.bottom video {
+.video video {
   width: auto;
   height: 100vh;
 }
 .p {
-  width: 100%;
+  width: 100vw;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -130,7 +150,11 @@ export default {
   transform: translate(-50%, -50%);
   min-width: 2rem;
   min-height: 2rem;
+  background-color: #000;
   box-shadow: 0rem 0rem 0rem 100vw #000, 0rem 0rem 0rem 30vw #000 inset;
+}
+.icon.transparent {
+  background-color: transparent;
 }
 .img {
   position: absolute;
@@ -138,7 +162,8 @@ export default {
   width: 100%;
   height: 100%;
   transform: translate(-50%, 0);
-  z-index: 7;
+  background-color: transparent;
+  z-index: 17;
 }
 .bottomImg {
   position: absolute;

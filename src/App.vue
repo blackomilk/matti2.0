@@ -2,8 +2,15 @@
   <div class="app">
     <Navbar />
     <Hi v-if="hiShow" ref="hi" />
-    <One v-else-if="oneShow" ref="one" @video="handleVideo" />
-    <Two v-else-if="twoShow" ref="two" />
+    <div v-else>
+      <One ref="one" @video="handleVideo" />
+      <Two />
+      <Two />
+      <Two />
+      <Two />
+      <Two />
+      <Two />
+    </div>
   </div>
 </template>
 
@@ -74,17 +81,18 @@ export default {
 };
 </script>
 <style>
-#app {
-  position: sticky;
-  top: 0;
+#app,
+.app {
+  position: relative;
+  /* top: 0; */
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   text-align: center;
-  /* background-color: blue; */
+  background-color: #000;
 }
 </style>

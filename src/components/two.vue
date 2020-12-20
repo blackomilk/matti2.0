@@ -11,5 +11,10 @@ export default {
 </script>
 
 <style scoped>
-
+  .two {
+    background-color: #ffffff;
+    /* position: absolute;
+    bottom: 0;
+    background-color: blue; */
+  }
 </style>
