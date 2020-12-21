@@ -21,6 +21,13 @@
         <div class="bottomImg" ref="bottomImg"></div>
         <img class="img" ref="img" src="../image/mattti.png" alt="" />
       </div>
+      <div class="text" ref="text">
+        <span class="span" ref="span">
+          我们把 iPhone 11 Pro 的芯， 放到了 iPhone SE 的身体里。 A13
+          仿生的速度超快， 因此，无论是打开 app、玩新款游戏，
+          还是用增强现实来解锁工作和娱乐的新方式， 都十分流畅。
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -73,12 +80,19 @@ export default {
         this.$refs.bottomImg.style.opacity = 1;
       }
       if(scrolled > 0.7) {
-        this.$refs.video.style.opacity = (0.9 - scrolled) / 0.2
+        this.$refs.video.style.opacity = (0.91 - scrolled) / 0.2
       } else {
         this.$refs.video.style.opacity = 1
       }
-      if (scrolled > 0.9) {
-        // this.$refs.bottom.style.opacity = 1
+      if (scrolled > 0.75) {
+        this.$refs.span.style.opacity = (scrolled - 0.75) / 0.2;
+        this.$refs.text.style.marginTop = scrolled * 200 * -1 + 'px'
+      } else {
+        this.$refs.span.style.opacity = 0;
+      }
+      if (scrolled >= 0.9) {
+        this.$refs.video.style.opacity = 0.05
+        this.$refs.span.style.opacity = 0.7;
       }
     });
   },
@@ -172,6 +186,25 @@ export default {
   height: 100%;
   border-radius: 50%;
   background-color: #000;
-  z-index: 5;
+  /* z-index: 5; */
+}
+.text {
+  position: absolute;
+  font-size: 0.47rem;
+  font-weight: 600;
+  text-align: left;
+  background-color: transparent;
+  width: 80%;
+  height: 3rem;
+  top: 100%;
+  left: 5%;
+  z-index: 800;
+  transform: translate(0, -100%);
+}
+.text span {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: transparent;
 }
 </style>
