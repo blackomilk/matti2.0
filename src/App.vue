@@ -1,16 +1,8 @@
 <template>
   <div class="app">
     <Navbar />
-    <Hi v-if="hiShow" ref="hi" />
-    <div v-else>
-      <One ref="one" @video="handleVideo" />
-      <Two />
-      <Two />
-      <Two />
-      <Two />
-      <Two />
-      <Two />
-    </div>
+    <!-- <Hi v-if="hiShow" ref="hi" :scrolled="scrolled" /> -->
+    <One ref="one" @scrollIsDown="scrolledIsDown" />
   </div>
 </template>
 
@@ -18,43 +10,26 @@
 import Navbar from "../src/components/navbar";
 import Hi from "../src/components/hi";
 import One from "../src/components/one";
-import Two from "../src/components/two";
-
 export default {
   name: "app",
   components: {
     Navbar,
     Hi,
     One,
-    Two,
   },
   data() {
     return {
-      hiShow: true,
-      oneShow: false,
-      twoShow: false,
+      // hiShow: true,
     };
   },
-  methods: {
-    handleVideo(video) {
-      console.log(video);
-      if (video === true) {
-        setTimeout(() => {
-          this.oneShow = false;
-          setTimeout(() => {
-            this.twoShow = true;
-          }, 1000);
-        }, 1000);
-      }
-    },
-  },
+  methods: {},
   mounted() {
-    this.handleVideo();
+    // this.handleVideo();
     this.$nextTick(() => {
       setTimeout(() => {
-        this.$refs.hi.$refs.hii.style.opacity = "0";
+        // this.$refs.hi.$refs.hii.style.opacity = "0";
         setTimeout(() => {
-          this.hiShow = false;
+          // this.hiShow = false;
           this.oneShow = true;
           setTimeout(() => {
             this.$refs.one.$refs.p.style.backgroundPositionX = "0%";
@@ -84,14 +59,15 @@ export default {
 #app,
 .app {
   position: relative;
-  /* top: 0; */
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   height: 100vh;
   width: 100%;
-  /* overflow: hidden; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   background-color: #000;
 }
