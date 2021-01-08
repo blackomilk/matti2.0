@@ -48,14 +48,14 @@ export default {
         this.upView.scrollTop /
         (this.upView.scrollHeight - this.upView.clientHeight);
       console.log("scrolled", scrolled);
-      if (scrolled == 0) {
+      if (scrolled > 0) {
         this.$refs.section2.style.clipPath = `inset(${
-          (0.33 - scrolled) * 1000
+          (0.25 - scrolled) * 1000
         }% 0px 0px)`;
       }
-      if (scrolled > 0.33) {
+      if (scrolled > 0.25) {
         this.$refs.section3.style.clipPath = `inset(${
-          (0.66 - scrolled) * 1000
+          (0.5 - scrolled) * 1000
         }% 0px 0px)`;
       }
     });

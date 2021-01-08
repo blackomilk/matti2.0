@@ -4,9 +4,7 @@
     <Profile />
     <Skill />
     <Swiper ref="swiper" />
-
     <Uppullpage ref="uppullpage" />
-
     <Contact />
   </div>
 </template>
@@ -32,6 +30,7 @@ export default {
   data() {
     return {
       isShow: true,
+      isTop: false
     };
   },
   mounted() {
@@ -44,22 +43,16 @@ export default {
       let scrolled =
         this.content.scrollTop /
         (this.content.scrollHeight - this.content.clientHeight);
-      // console.log(scrolled);
-      // console.log('this.content',this.content.scrollTop)
-      // console.log('this.content',this.content.scrollHeight)
-      // console.log('this.content',this.content.clientHeight)
-      if (this.content.scrollTop == this.$refs.uppullpage.$el.offsetTop) {
-        this.$refs.uppullpage.$refs.upView.style.overflowY = "scroll";
+      const flag = this.content.scrollTop == this.$refs.uppullpage.$refs.upView.offsetTop
+      if (flag != this.isTop) {
+        this.$refs.uppullpage.$refs.upView.style.overflowY = 'scroll'
+        this.$refs.uppullpage.$refs.upView.style.position = 'fixed'
+        this.$refs.uppullpage.$refs.upView.style.top = 0
+        this.$refs.uppullpage.$refs.upView.style.overflowX = 'hidden'
         console.log('相等了')
       } else {
-        this.$refs.uppullpage.$refs.upView.style.overflowY = "hidden";
-        console.log('不相等')
+        this.$refs.uppullpage.$refs.upView.style.overflowY = 'hidden'
       }
-      // console.log('this.$refs.uppullpage.$refs.upView.offsetTop',this.$refs.uppullpage.$refs.upView.scrollTop)
-      // console.log('this.$refs.uppullpage.$refs.upView.offsetTop',this.$refs.uppullpage.$refs.upView.scrollHeight)
-      // console.log('this.$refs.uppullpage.$refs.upView.offsetTop',this.$refs.uppullpage.$refs.upView.clientHeight)
-      // console.log('this.$refs.uppullpage.$refs.upView.offsetTop',this.$refs.uppullpage.$el.offsetTop)
-      // if(this.$refs.uppullpage.$refs.upView.offsetTop)
     });
   },
   methods: {
@@ -80,5 +73,8 @@ export default {
 }
 .content::-webkit-scrollbar {
   display: none;
+}
+.abc {
+  background-color:saddlebrown;
 }
 </style>
