@@ -47,7 +47,6 @@ export default {
       // }
       let scrolled =
         matti.scrollTop / (matti.scrollHeight - matti.clientHeight);
-      // console.log(scrolled);
       // const mattii = document.getElementById("mattii");
       this.$refs.icon.style.width = this.$refs.icon.style.height =
         document.documentElement.clientWidth *

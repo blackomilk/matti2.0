@@ -10,6 +10,11 @@
               <div>2222222222222222222222</div>
               <div>2222222222222222222222</div>
               <div>2222222222222222222222</div>
+              <div>2222222222222222222222</div>
+              <div>2222222222222222222222</div>
+              <div>2222222222222222222222</div>
+              <div>2222222222222222222222</div>
+              <div>2222222222222222222222</div>
             </div>
           </div>
           <div class="section2" ref="section2">
@@ -19,15 +24,27 @@
               <div>33333333333333333</div>
               <div>33333333333333333</div>
               <div>33333333333333333</div>
+              <div>33333333333333333</div>
+              <div>33333333333333333</div>
+              <div>33333333333333333</div>
+              <div>33333333333333333</div>
+              <div>33333333333333333</div>
             </div>
           </div>
           <div class="section3" ref="section3">
             <div class="s-content">
-              <div>444444444444</div>
-              <div>444444444444</div>
-              <div>444444444444</div>
-              <div>444444444444</div>
-              <div>444444444444</div>
+              <div>1111111111</div>
+              <div>444442222224444444</div>
+              <div>1111111111</div>
+              <div>444442222224444444</div>
+              <div>1111111111</div>
+              <div>444442222224444444</div>
+              <div>1111111111</div>
+              <div>444442222224444444</div>
+              <div>1111111111</div>
+              <div>444442222224444444</div>
+              <div>1111111111</div>
+              <div>444442222224444444</div>
             </div>
           </div>
         </div>
@@ -47,16 +64,24 @@ export default {
       let scrolled =
         this.upView.scrollTop /
         (this.upView.scrollHeight - this.upView.clientHeight);
-      console.log("scrolled", scrolled);
-      if (scrolled > 0) {
+      // console.log("scrolled", scrolled);
+      if (scrolled <= 0.3) {
         this.$refs.section2.style.clipPath = `inset(${
-          (0.25 - scrolled) * 1000
+          (0.25 - scrolled) * 400
         }% 0px 0px)`;
+        this.$refs.section3.style.overflowY = "hidden";
+      } else {
+        this.$refs.section3.style.overflowY = "scroll";
       }
-      if (scrolled > 0.25) {
+      if (scrolled <= 0.6) {
         this.$refs.section3.style.clipPath = `inset(${
-          (0.5 - scrolled) * 1000
+          (0.5 - scrolled) * 400
         }% 0px 0px)`;
+      } else {
+      }
+      if (scrolled > 0.5) {
+        // this.$refs.ssticky.style.position = 'static';
+      } else {
       }
     });
   },
@@ -67,13 +92,14 @@ export default {
 .uppull {
   width: 100%;
   height: 100vh;
-  overflow-y: hidden;
+  overflow-y: scroll;
   /* overflow-y: scroll; */
 }
 .shanghuaye {
   position: relative;
   z-index: 1;
-  height: calc((3 * 100vh) + 100vh);
+  height: calc(3 * 100vh);
+  background-color: yellowgreen;
 }
 .shanghuaye-sticky {
   height: 100vh;
@@ -81,11 +107,13 @@ export default {
   position: -webkit-sticky;
   overflow: hidden;
   top: 0;
+  background-color: tomato;
 }
 .wipe-stack {
   height: 100vh;
   overflow: hidden;
   position: relative;
+  background-color: violet;
 }
 .section1 {
   z-index: 2;
@@ -93,12 +121,13 @@ export default {
   width: 100%;
   position: absolute;
   overflow: hidden;
-  background-color: skyblue;
+  background-color: #ffffff;
   color: #1d1d1f;
 }
 .s-content {
   height: initial;
   background-color: transparent;
+  margin-top: 1rem;
 }
 .section2 {
   clip-path: inset(100% 0px 0px);
@@ -117,6 +146,7 @@ export default {
   width: 100%;
   position: absolute;
   background-color: #960b19;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 </style>

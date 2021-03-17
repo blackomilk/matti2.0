@@ -1,8 +1,8 @@
 <template>
   <div class="content" ref="content">
-    <Mattii />
-    <Profile />
-    <Skill />
+    <Mattii ref="mattii" />
+    <Profile ref="profile" />
+    <Skill ref="skill" />
     <Swiper ref="swiper" />
     <Uppullpage ref="uppullpage" />
     <Contact />
@@ -30,36 +30,54 @@ export default {
   data() {
     return {
       isShow: true,
-      isTop: false
+      isTop: false,
+      scrolled: null,
     };
   },
-  mounted() {
-    this.content = this.$refs.content;
-    this.content.addEventListener("scroll", () => {
-      // let scrolled =
-      //   document.documentElement.scrollTop /
-      //   (document.documentElement.scrollHeight -
-      //     document.documentElement.clientHeight);
-      let scrolled =
-        this.content.scrollTop /
-        (this.content.scrollHeight - this.content.clientHeight);
-      const flag = this.content.scrollTop == this.$refs.uppullpage.$refs.upView.offsetTop
-      if (flag != this.isTop) {
-        this.$refs.uppullpage.$refs.upView.style.overflowY = 'scroll'
-        this.$refs.uppullpage.$refs.upView.style.position = 'fixed'
-        this.$refs.uppullpage.$refs.upView.style.top = 0
-        this.$refs.uppullpage.$refs.upView.style.overflowX = 'hidden'
-        console.log('相等了')
+  watch: {
+    scrolled(newVal, oldVal) {
+      console.log("newVal", newVal);
+      console.log("oldVal", oldVal);
+      if (newVal > oldVal) {
+        if (this.scrolled > 50) {
+          this.$refs.mattii.$refs.matti.style.overflowY = "hidden";
+        }
+        if (this.scrolled > 2550) {
+          this.$refs.uppullpage.$refs.upView.style.overflowY = "scroll";
+        }
+        if (this.scrolled < 2550) {
+          this.$refs.uppullpage.$refs.upView.style.overflowY = "hidden";
+        }
+        if (this.scrolled > 2600) {
+          this.$refs.uppullpage.$refs.upView.style.overflowY = "hidden";
+        }
       } else {
-        this.$refs.uppullpage.$refs.upView.style.overflowY = 'hidden'
+        if (this.scrolled > 0) {
+          this.$refs.mattii.$refs.matti.style.overflowY = "hidden";
+        }
+        if (this.scrolled === 0) {
+          this.$refs.mattii.$refs.matti.style.overflowY = "scroll";
+        }
+        if (this.scrolled < 2550) {
+          this.$refs.uppullpage.$refs.upView.style.overflowY = "scroll";
+        }
+        if (this.scrolled > 2550) {
+          this.$refs.uppullpage.$refs.upView.style.overflowY = "hidden";
+        }
+        if (this.scrolled < 2445) {
+          this.$refs.uppullpage.$refs.upView.style.overflowY = "hidden";
+        }
       }
-    });
-  },
-  methods: {
-    handleVideo() {
-      // let scrollY = document.documentElement.scrollTop
-      // console.log("scrolltop",scrollY)
     },
+  },
+  mounted() {
+    this.$refs.content.addEventListener("scroll", () => {
+      this.scrolled = this.$refs.content.scrollTop;
+      // this.scrolled =
+      //   this.$refs.content.scrollTop /
+      //   (this.$refs.content.scrollHeight - this.$refs.content.clientHeight);
+      //   console.log(this.$refs.content.scrollTop)
+    });
   },
 };
 </script>
@@ -75,6 +93,6 @@ export default {
   display: none;
 }
 .abc {
-  background-color:saddlebrown;
+  background-color: saddlebrown;
 }
 </style>

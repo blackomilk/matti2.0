@@ -23,15 +23,14 @@ export default {
 .profile {
   width: 100%;
   height: 100vh;
-  text-align: left;
+  /* text-align: left; */
   font-size: 0.5rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  /* background-color: rgba(243, 243, 246); */
-  background-color: skyblue;
+  background-color: rgba(243, 243, 246);
+  /* background-color: skyblue; */
 }
 .name {
   width: 15em;
@@ -40,10 +39,12 @@ export default {
   /* animation: typing 2s steps(15, end), blink-caret 0.75s step-end infinite; */
   animation: typing 2s steps(15, end);
   overflow: hidden;
+  margin-top: 2rem;
 }
 .vue {
   width: 5rem;
   height: 5rem;
+  margin-top: 1rem;
 }
 /* 打印效果 */
 @keyframes typing {
