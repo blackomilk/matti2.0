@@ -1,54 +1,31 @@
 <template>
-  <div class="uppull" ref="upView">
-    <div class="shanghuaye">
+  <div class="uppull" ref="uppull">
+    <div class="shanghuaye" ref="upView">
       <div class="shanghuaye-sticky" ref="ssticky">
-        <div class="wipe-stack">
-          <div class="section1">
-            <div class="s-content">
-              <div>2222222222222222222222</div>
-              <div>2222222222222222222222</div>
-              <div>2222222222222222222222</div>
-              <div>2222222222222222222222</div>
-              <div>2222222222222222222222</div>
-              <div>2222222222222222222222</div>
-              <div>2222222222222222222222</div>
-              <div>2222222222222222222222</div>
-              <div>2222222222222222222222</div>
-              <div>2222222222222222222222</div>
-            </div>
+        <!-- <div class="wipe-stack"> -->
+        <div class="section1">
+          <div class="s-content">
+            <div>有黑色</div>
+            <div class="iphone-b"></div>
           </div>
-          <div class="section2" ref="section2">
-            <div class="s-content">
-              <div>33333333333333333</div>
-              <div>33333333333333333</div>
-              <div>33333333333333333</div>
-              <div>33333333333333333</div>
-              <div>33333333333333333</div>
-              <div>33333333333333333</div>
-              <div>33333333333333333</div>
-              <div>33333333333333333</div>
-              <div>33333333333333333</div>
-              <div>33333333333333333</div>
-            </div>
+        </div>
+        <div class="section2" ref="section2">
+          <div class="s-content">
+            <div>有黑色</div>
+            <div>有白色</div>
+            <div class="iphone-w"></div>
           </div>
-          <div class="section3" ref="section3">
-            <div class="s-content">
-              <div>1111111111</div>
-              <div>444442222224444444</div>
-              <div>1111111111</div>
-              <div>444442222224444444</div>
-              <div>1111111111</div>
-              <div>444442222224444444</div>
-              <div>1111111111</div>
-              <div>444442222224444444</div>
-              <div>1111111111</div>
-              <div>444442222224444444</div>
-              <div>1111111111</div>
-              <div>444442222224444444</div>
-            </div>
+        </div>
+        <div class="section3" ref="section3">
+          <div class="s-content">
+            <div>有黑色</div>
+            <div>有白色</div>
+            <div>还有红色</div>
+            <div class="iphone-r"></div>
           </div>
         </div>
       </div>
+      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -57,31 +34,26 @@
 export default {
   name: "uppullpage",
   mounted() {
-    this.upView = this.$refs.upView;
+    this.upView = this.$refs.uppull;
     // console.log("scrolled", this.upView.offsetTop - window.scrollTop);
 
     this.upView.addEventListener("scroll", () => {
       let scrolled =
         this.upView.scrollTop /
         (this.upView.scrollHeight - this.upView.clientHeight);
-      // console.log("scrolled", scrolled);
-      if (scrolled <= 0.3) {
+      console.log("scrolled", scrolled);
+      if (scrolled <= 0.5) {
         this.$refs.section2.style.clipPath = `inset(${
-          (0.25 - scrolled) * 400
+          (0.5 - scrolled) * 500
+        }% 0px 0px)`;
+      }
+      if (scrolled <= 0.9) {
+        this.$refs.section3.style.clipPath = `inset(${
+          (0.9 - scrolled) * 500
         }% 0px 0px)`;
         this.$refs.section3.style.overflowY = "hidden";
       } else {
         this.$refs.section3.style.overflowY = "scroll";
-      }
-      if (scrolled <= 0.6) {
-        this.$refs.section3.style.clipPath = `inset(${
-          (0.5 - scrolled) * 400
-        }% 0px 0px)`;
-      } else {
-      }
-      if (scrolled > 0.5) {
-        // this.$refs.ssticky.style.position = 'static';
-      } else {
       }
     });
   },
@@ -90,39 +62,58 @@ export default {
 
 <style scoped>
 .uppull {
+  position: relative;
   width: 100%;
   height: 100vh;
-  overflow-y: scroll;
-  /* overflow-y: scroll; */
+  overflow: auto;
 }
 .shanghuaye {
   position: relative;
+
   z-index: 1;
-  height: calc(3 * 100vh);
-  background-color: yellowgreen;
+  height: calc((3 * 100vh) + 100vh);
+  width: 100%;
 }
 .shanghuaye-sticky {
   height: 100vh;
+  width: 100%;
   position: sticky;
   position: -webkit-sticky;
-  overflow: hidden;
   top: 0;
-  background-color: tomato;
+  overflow: hidden;
 }
 .wipe-stack {
   height: 100vh;
-  overflow: hidden;
   position: relative;
-  background-color: violet;
 }
 .section1 {
-  z-index: 2;
   height: 100vh;
   width: 100%;
   position: absolute;
   overflow: hidden;
-  background-color: #ffffff;
-  color: #1d1d1f;
+  background-color: #000;
+  color: #f5f5f7;
+}
+.iphone-b {
+  height: 80vh;
+  width: 75vw;
+  margin: 20% auto 0;
+  background-image: url("https://www.apple.com.cn/v/iphone-se/d/images/overview/finishes_black__b06syayq94wi_small_2x.png");
+  background-size: 100% 100%;
+}
+.iphone-w {
+  height: 80vh;
+  width: 75vw;
+  margin: 20% auto 0;
+  background-image: url("https://www.apple.com.cn/v/iphone-se/d/images/overview/finishes_white__drv9fwq9vzwy_small_2x.png");
+  background-size: 100% 100%;
+}
+.iphone-r {
+  height: 80vh;
+  width: 75vw;
+  margin: 20% auto;
+  background-image: url("https://www.apple.com.cn/iphone-se/images/overview/finishes_red__eqfv1ongy282_small_2x.png");
+  background-size: 100% 100%;
 }
 .s-content {
   height: initial;
@@ -136,8 +127,8 @@ export default {
   width: 100%;
   position: absolute;
   overflow: hidden;
-  background-color: #1d1d1f;
-  color: #f5f5f7;
+  background-color: #fff;
+  color: #1d1d1f;
 }
 .section3 {
   clip-path: inset(100% 0px 0px);

@@ -36,21 +36,16 @@ export default {
   },
   watch: {
     scrolled(newVal, oldVal) {
-      console.log("newVal", newVal);
-      console.log("oldVal", oldVal);
+      // console.log(this.scrolled);
       if (newVal > oldVal) {
         if (this.scrolled > 50) {
           this.$refs.mattii.$refs.matti.style.overflowY = "hidden";
         }
-        if (this.scrolled > 2550) {
-          this.$refs.uppullpage.$refs.upView.style.overflowY = "scroll";
-        }
-        if (this.scrolled < 2550) {
-          this.$refs.uppullpage.$refs.upView.style.overflowY = "hidden";
-        }
-        if (this.scrolled > 2600) {
-          this.$refs.uppullpage.$refs.upView.style.overflowY = "hidden";
-        }
+        // if (this.$refs.uppullpage.$refs.ssticky.style.position === "sticky") {
+        //   this.$refs.uppullpage.$refs.uppull.style.overflow = "auto";
+        // } else {
+        //   this.$refs.uppullpage.$refs.uppull.style.overflow = "hidden";
+        // }
       } else {
         if (this.scrolled > 0) {
           this.$refs.mattii.$refs.matti.style.overflowY = "hidden";
@@ -58,15 +53,18 @@ export default {
         if (this.scrolled === 0) {
           this.$refs.mattii.$refs.matti.style.overflowY = "scroll";
         }
-        if (this.scrolled < 2550) {
-          this.$refs.uppullpage.$refs.upView.style.overflowY = "scroll";
-        }
-        if (this.scrolled > 2550) {
-          this.$refs.uppullpage.$refs.upView.style.overflowY = "hidden";
-        }
-        if (this.scrolled < 2445) {
-          this.$refs.uppullpage.$refs.upView.style.overflowY = "hidden";
-        }
+
+        // if (this.$refs.uppullpage.$refs.ssticky.style.position === "sticky") {
+        //   this.$refs.uppullpage.$refs.uppull.style.overflow = "auto";
+        // } else {
+        //   this.$refs.uppullpage.$refs.uppull.style.overflow = "hidden";
+        // }
+        // if (this.scrolled === 2550) {
+        //   this.$refs.uppullpage.$refs.uppull.style.overflow = "auto";
+        // }
+        // if (this.scrolled < 2550) {
+        //   this.$refs.uppullpage.$refs.upView.style.overflowY = "hidden";
+        // }
       }
     },
   },

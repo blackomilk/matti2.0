@@ -45,7 +45,6 @@ export default {
   height: 11rem;
   position: relative;
   background-color: #ffffff;
-  border-bottom: 1px solid red;
 }
 .slides {
   position: relative;
