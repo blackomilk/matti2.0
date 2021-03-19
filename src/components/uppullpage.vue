@@ -1,6 +1,6 @@
 <template>
   <div class="uppull" ref="uppull">
-    <div class="shanghuaye" ref="upView">
+    <div class="shanghuaye" ref="shanghuaye">
       <div class="shanghuaye-sticky" ref="ssticky">
         <!-- <div class="wipe-stack"> -->
         <div class="section1">
@@ -41,15 +41,15 @@ export default {
       let scrolled =
         this.upView.scrollTop /
         (this.upView.scrollHeight - this.upView.clientHeight);
-      console.log("scrolled", scrolled);
+      // console.log("scrolled", scrolled);
       if (scrolled <= 0.5) {
         this.$refs.section2.style.clipPath = `inset(${
-          (0.5 - scrolled) * 500
+          (0.45 - scrolled) * 500
         }% 0px 0px)`;
       }
       if (scrolled <= 0.9) {
         this.$refs.section3.style.clipPath = `inset(${
-          (0.9 - scrolled) * 500
+          (0.85 - scrolled) * 500
         }% 0px 0px)`;
         this.$refs.section3.style.overflowY = "hidden";
       } else {
@@ -69,7 +69,6 @@ export default {
 }
 .shanghuaye {
   position: relative;
-
   z-index: 1;
   height: calc((3 * 100vh) + 100vh);
   width: 100%;
@@ -80,11 +79,16 @@ export default {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  overflow: hidden;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
 .wipe-stack {
   height: 100vh;
   position: relative;
+}
+.visuallyhidden {
+  clip: rect(1px, 1px, 1px, 1px);
 }
 .section1 {
   height: 100vh;

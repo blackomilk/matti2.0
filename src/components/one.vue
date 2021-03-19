@@ -41,11 +41,6 @@ export default {
         if (this.scrolled > 50) {
           this.$refs.mattii.$refs.matti.style.overflowY = "hidden";
         }
-        // if (this.$refs.uppullpage.$refs.ssticky.style.position === "sticky") {
-        //   this.$refs.uppullpage.$refs.uppull.style.overflow = "auto";
-        // } else {
-        //   this.$refs.uppullpage.$refs.uppull.style.overflow = "hidden";
-        // }
       } else {
         if (this.scrolled > 0) {
           this.$refs.mattii.$refs.matti.style.overflowY = "hidden";
@@ -53,28 +48,12 @@ export default {
         if (this.scrolled === 0) {
           this.$refs.mattii.$refs.matti.style.overflowY = "scroll";
         }
-
-        // if (this.$refs.uppullpage.$refs.ssticky.style.position === "sticky") {
-        //   this.$refs.uppullpage.$refs.uppull.style.overflow = "auto";
-        // } else {
-        //   this.$refs.uppullpage.$refs.uppull.style.overflow = "hidden";
-        // }
-        // if (this.scrolled === 2550) {
-        //   this.$refs.uppullpage.$refs.uppull.style.overflow = "auto";
-        // }
-        // if (this.scrolled < 2550) {
-        //   this.$refs.uppullpage.$refs.upView.style.overflowY = "hidden";
-        // }
       }
     },
   },
   mounted() {
     this.$refs.content.addEventListener("scroll", () => {
       this.scrolled = this.$refs.content.scrollTop;
-      // this.scrolled =
-      //   this.$refs.content.scrollTop /
-      //   (this.$refs.content.scrollHeight - this.$refs.content.clientHeight);
-      //   console.log(this.$refs.content.scrollTop)
     });
   },
 };

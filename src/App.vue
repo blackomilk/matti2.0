@@ -1,8 +1,8 @@
 <template>
   <div class="app">
     <Navbar />
-    <!-- <Hi v-if="hiShow" ref="hi" :scrolled="scrolled" /> -->
-    <One ref="one" @scrollIsDown="scrolledIsDown" />
+    <Hi v-if="hiShow" ref="hi" :scrolled="scrolled" />
+    <One v-else ref="one" @scrollIsDown="scrolledIsDown" />
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
   },
   data() {
     return {
-      // hiShow: true,
+      hiShow: false,
     };
   },
   methods: {},
@@ -27,12 +27,12 @@ export default {
     // this.handleVideo();
     this.$nextTick(() => {
       setTimeout(() => {
-        // this.$refs.hi.$refs.hii.style.opacity = "0";
+        this.$refs.hi.$refs.hii.style.opacity = "0";
         setTimeout(() => {
-          // this.hiShow = false;
-          this.oneShow = true;
+          this.hiShow = false;
+          // this.oneShow = true;
           setTimeout(() => {
-            this.$refs.one.$refs.p.style.backgroundPositionX = "0%";
+            this.$refs.one.$refs.mattii.$refs.p.style.backgroundPositionX = "0%";
           }, 100);
         }, 2000);
       }, 1700);
