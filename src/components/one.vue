@@ -54,6 +54,18 @@ export default {
   mounted() {
     this.$refs.content.addEventListener("scroll", () => {
       this.scrolled = this.$refs.content.scrollTop;
+      console.log("aaaa", this.scrolled);
+      if (this.scrolled >= 2550 && this.scrolled <= 2552) {
+        this.$refs.uppullpage.$refs.section3.style.overflow = "auto";
+        this.$refs.uppullpage.$refs.uppull.style.overflow = "auto";
+        this.$refs.uppullpage.$refs.section1.style.position = 'sticky'
+        this.$refs.uppullpage.$refs.section1.style.top = '0'
+        this.$refs.uppullpage.$refs.section1.style.right = '0'
+        this.$refs.uppullpage.$refs.section1.style.left = '0'
+      } else {
+        this.$refs.uppullpage.$refs.section3.style.overflow = "hidden";
+        this.$refs.uppullpage.$refs.uppull.style.overflow = "hidden";
+      }
     });
   },
 };
