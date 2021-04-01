@@ -19,7 +19,7 @@ export default {
   },
   data() {
     return {
-      hiShow: false,
+      hiShow: true,
     };
   },
   methods: {},

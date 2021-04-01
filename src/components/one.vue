@@ -56,12 +56,12 @@ export default {
   mounted() {
     this.$refs.content.addEventListener("scroll", () => {
       this.scrolled = this.$refs.content.scrollTop;
-      if (this.scrolled <= 2550 && this.scrolled >= 2552) {
-        this.$refs.uppullpage.$refs.section3.style.overflow = "hidden";
-        this.$refs.uppullpage.$refs.uppull.style.overflow = "hidden";
-      } else {
+      if (this.scrolled >= 2550 && this.scrolled <= 2552) {
         this.$refs.uppullpage.$refs.section3.style.overflow = "auto";
         this.$refs.uppullpage.$refs.uppull.style.overflow = "auto";
+      } else {
+        this.$refs.uppullpage.$refs.section3.style.overflow = "hidden";
+        this.$refs.uppullpage.$refs.uppull.style.overflow = "hidden";
       }
     });
   },
