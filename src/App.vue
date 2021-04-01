@@ -19,7 +19,7 @@ export default {
   },
   data() {
     return {
-      hiShow: false,
+      hiShow: true,
     };
   },
   methods: {},
@@ -30,7 +30,7 @@ export default {
         this.$refs.hi.$refs.hii.style.opacity = "0";
         setTimeout(() => {
           this.hiShow = false;
-          // this.oneShow = true;
+          this.oneShow = true;
           setTimeout(() => {
             this.$refs.one.$refs.mattii.$refs.p.style.backgroundPositionX = "0%";
           }, 100);
