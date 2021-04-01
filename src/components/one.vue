@@ -4,8 +4,10 @@
     <Profile ref="profile" />
     <Skill ref="skill" />
     <Swiper ref="swiper" />
-    <Uppullpage ref="uppullpage" />
-    <Contact />
+    <!-- <div class="uppullpage"> -->
+      <Uppullpage ref="uppullpage" class="uppullpage"/>
+    <!-- </div> -->
+    <Contact class="contact"/>
   </div>
 </template>
 
@@ -54,17 +56,12 @@ export default {
   mounted() {
     this.$refs.content.addEventListener("scroll", () => {
       this.scrolled = this.$refs.content.scrollTop;
-      console.log("aaaa", this.scrolled);
-      if (this.scrolled >= 2550 && this.scrolled <= 2552) {
-        this.$refs.uppullpage.$refs.section3.style.overflow = "auto";
-        this.$refs.uppullpage.$refs.uppull.style.overflow = "auto";
-        this.$refs.uppullpage.$refs.section1.style.position = 'sticky'
-        this.$refs.uppullpage.$refs.section1.style.top = '0'
-        this.$refs.uppullpage.$refs.section1.style.right = '0'
-        this.$refs.uppullpage.$refs.section1.style.left = '0'
-      } else {
+      if (this.scrolled <= 2550 && this.scrolled >= 2552) {
         this.$refs.uppullpage.$refs.section3.style.overflow = "hidden";
         this.$refs.uppullpage.$refs.uppull.style.overflow = "hidden";
+      } else {
+        this.$refs.uppullpage.$refs.section3.style.overflow = "auto";
+        this.$refs.uppullpage.$refs.uppull.style.overflow = "auto";
       }
     });
   },
@@ -83,5 +80,19 @@ export default {
 }
 .abc {
   background-color: saddlebrown;
+}
+.uppullpage {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.contact {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
 }
 </style>
