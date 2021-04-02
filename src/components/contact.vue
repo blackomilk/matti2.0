@@ -8,6 +8,37 @@
 <script>
 export default {
   name: "contact",
+  mounted() {
+    // this.romanToInt('IV')
+  },
+  methods: {
+   romanToInt(s) {
+
+    let num = 0
+    let obj = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000
+
+    }
+    let len = s.length
+    for(let i = 0;i<len;i++) {
+      debugger
+        let val = obj[s[i]]
+        let nVal = obj[s[i+1]]
+        if((i !== len -1 ) && val < nVal) {
+            num -= val
+        } else {
+            num += val
+        }
+    }
+    return num
+}
+  }
 };
 </script>
 
@@ -17,7 +48,7 @@ export default {
   height: 100vh;
   background-color: #ffcd00;
   padding-top: 1.1rem;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 1.2rem;
   display: flex;
   flex-direction: column;
@@ -107,17 +138,16 @@ export default {
 .foo::before {
   color: #009cde;
   animation: 2.5s foo-before ease-in-out infinite;
-    z-index: -1;
-
+  z-index: -1;
 }
 .foo::after {
   color: #003c71;
   animation: 2.5s foo-after ease-in-out infinite;
-    z-index: -2;
-
+  z-index: -2;
 }
 @keyframes foo-before {
-  0%,100% {
+  0%,
+  100% {
     transform: translate3d(1px, 3px, -2.5px);
   }
   50% {
@@ -125,7 +155,8 @@ export default {
   }
 }
 @keyframes foo-after {
-  0%,100% {
+  0%,
+  100% {
     transform: translate3d(1px, 5px, -2.5px);
   }
   50% {
