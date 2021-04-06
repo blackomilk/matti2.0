@@ -44,7 +44,7 @@ export default {
   width: 100%;
   height: 11rem;
   position: relative;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 .slides {
   position: relative;
@@ -53,7 +53,7 @@ export default {
   list-style: none;
   margin: 0rem;
   padding: 0rem;
-  background-color: #fff;
+  background-color: #000;
   overflow: hidden;
 }
 .slide {

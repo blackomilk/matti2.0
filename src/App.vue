@@ -2,7 +2,7 @@
   <div class="app">
     <Navbar />
     <Hi v-if="hiShow" ref="hi" :scrolled="scrolled" />
-    <One v-else ref="one" @scrollIsDown="scrolledIsDown" />
+    <One v-else ref="one" @scrollIsDown="scrolledIsDown"/>
   </div>
 </template>
 

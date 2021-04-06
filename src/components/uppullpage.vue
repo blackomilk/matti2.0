@@ -176,6 +176,6 @@ h5 {
   overflow-x: hidden;
 }
 .iphone-r {
-  padding-bottom: 720px;
+  padding-bottom: 667px;
 }
 </style>
