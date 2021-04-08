@@ -3,10 +3,10 @@
     <Mattii ref="mattii" />
     <Profile ref="profile" />
     <Swiper ref="swiper" class="swiper" />
-    <Uppullpage ref="uppullpage" class="uppullpage"  />
+    <Uppullpage ref="uppullpage" class="uppullpage" />
     <Skill ref="skill" class="skill" />
 
-    <Contact ref="cc" class="contact" id="cc"/>
+    <Contact ref="cc" class="contact" id="cc" />
   </div>
 </template>
 
@@ -66,9 +66,6 @@ export default {
         if (this.scrolled >= 2550) {
           this.$refs.uppullpage.$refs.section3.style.overflow = "auto";
           this.$refs.uppullpage.$refs.uppull.style.overflow = "auto";
-        } else if (bottom <= 667) {
-          this.$refs.uppullpage.$refs.section3.style.overflow = "hidden";
-          this.$refs.uppullpage.$refs.uppull.style.overflow = "hidden";
         } else {
           this.$refs.uppullpage.$refs.section3.style.overflow = "hidden";
           this.$refs.uppullpage.$refs.uppull.style.overflow = "hidden";

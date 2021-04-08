@@ -1,12 +1,11 @@
 <template>
   <div class="skill">
-    <div>sadadadadsa</div>
-    <div>sadadadadsa</div>
-    <div>sadadadadsa</div>
-    <div>sadadadadsa</div>
-    <div>sadadadadsa</div>
-    <div>sadadadadsa</div>
-    <div>sadadadadsa</div>
+    <canvas
+      id="canvas"
+      width="200"
+      height="150"
+      style="border: 1px dashed gray;color: red;background-color: #FFF"
+    ></canvas>
   </div>
 </template>
 
@@ -16,7 +15,20 @@ export default {
   data() {
     return {};
   },
-  mounted() {},
+  mounted() {
+    let cnv = document.getElementById("canvas");
+    let cxt = cnv.getContext("2d");
+
+    cxt.moveTo(40, 60);
+    cxt.lineTo(100, 60);
+    cxt.lineTo(100, 30);
+    cxt.lineTo(150, 75);
+    cxt.lineTo(100, 120);
+    cxt.lineTo(100, 90);
+    cxt.lineTo(40, 90);
+    cxt.lineTo(40, 60);
+    cxt.stroke();
+  },
   methods: {},
 };
 </script>
