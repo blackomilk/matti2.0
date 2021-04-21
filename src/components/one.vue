@@ -59,15 +59,16 @@ export default {
     aa() {
       this.$refs.content.addEventListener("scroll", () => {
         this.scrolled = this.$refs.content.scrollTop;
+        console.log('aaaa',this.scrolled)
         let cc = document.getElementById("cc");
         let bottom = cc.getBoundingClientRect().bottom;
         // console.log(cc.getBoundingClientRect());
         // console.log(cc.offsetTop)
-        if (this.scrolled >= 2550) {
-          this.$refs.uppullpage.$refs.section3.style.overflow = "auto";
+        if (this.scrolled >= 2687) {
+          // this.$refs.uppullpage.$refs.section3.style.overflow = "auto";
           this.$refs.uppullpage.$refs.uppull.style.overflow = "auto";
         } else {
-          this.$refs.uppullpage.$refs.section3.style.overflow = "hidden";
+          // this.$refs.uppullpage.$refs.section3.style.overflow = "hidden";
           this.$refs.uppullpage.$refs.uppull.style.overflow = "hidden";
         }
       });

@@ -1,5 +1,5 @@
 <template>
-  <div class="contact">
+  <div class="contact" ref="cc" id="cc">
     <div class="title">Contact Me</div>
     <div class="foo">Thank You!</div>
   </div>
@@ -8,8 +8,25 @@
 <script>
 export default {
   name: "contact",
+  data() {
+    return {
+      offsetTop: 0
+    }
+  },
+  watch: {
+    offsetTop(newVal,oldVal) {
+      if(newVal) {
+        console.log('newVal',newVal)
+      }
+    }
+  },
   mounted() {
-    // this.romanToInt('IV')
+    let cc = document.getElementById('cc')
+    this.offsetTop = cc.offsetHeight
+    console.log('ccccccccc',cc.offsetHeight)
+
+
+    
   },
   methods: {
    romanToInt(s) {
