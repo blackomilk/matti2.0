@@ -45,7 +45,7 @@ export default {
       let scrolled =
         this.upView.scrollTop /
         (this.upView.scrollHeight - this.upView.clientHeight);
-        console.log('1111111111111111',scrolled)
+      console.log("1111111111111111", scrolled);
       this.$refs.section2.style.clipPath = `inset(${((0.5 - scrolled) / 0.5) *
         100}% 0px 0px 0px)`;
       this.$refs.section3.style.clipPath = `inset(${((1 - scrolled) / 0.5) *
@@ -158,6 +158,7 @@ h5 {
 }
 .section2 {
   clip-path: inset(100% 0px 0px 0px);
+  clip-path: -webkit-inset(100% 0px 0px 0px);
   z-index: 3;
   height: 100vh;
   width: 100%;
@@ -168,6 +169,7 @@ h5 {
 }
 .section3 {
   clip-path: inset(100% 0px 0px 0px);
+  clip-path: -webkit-inset(100% 0px 0px 0px);
   z-index: 4;
   height: 100vh;
   width: 100%;
