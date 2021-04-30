@@ -45,6 +45,7 @@ export default {
       let scrolled =
         this.upView.scrollTop /
         (this.upView.scrollHeight - this.upView.clientHeight);
+        console.log('1111111111111111',scrolled)
       this.$refs.section2.style.clipPath = `inset(${((0.5 - scrolled) / 0.5) *
         100}% 0px 0px 0px)`;
       this.$refs.section3.style.clipPath = `inset(${((1 - scrolled) / 0.5) *
