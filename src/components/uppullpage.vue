@@ -48,7 +48,11 @@ export default {
       console.log("1111111111111111", scrolled);
       this.$refs.section2.style.clipPath = `inset(${((0.5 - scrolled) / 0.5) *
         100}% 0px 0px 0px)`;
+      this.$refs.section2.style.clipPath = `-webkit-inset(${((0.5 - scrolled) / 0.5) *
+        100}% 0px 0px 0px)`;
       this.$refs.section3.style.clipPath = `inset(${((1 - scrolled) / 0.5) *
+        100}% 0px 0px 0px)`;
+      this.$refs.section3.style.clipPath = `-webkit-inset(${((1 - scrolled) / 0.5) *
         100}% 0px 0px 0px)`;
       if (scrolled >= 1) {
         this.$refs.section3.style.overflow = "auto";
