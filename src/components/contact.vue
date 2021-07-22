@@ -2,60 +2,60 @@
   <div class="contact" ref="cc" id="cc">
     <!-- <div class="title">Contact Me</div>
     <div class="foo">Thank You!</div> -->
-      <!-- 太阳 -->
-      <div class="sun star-line">
-        <div class="su-box">
-          <img src="../assets/1.png" alt="" />
-        </div>
+    <!-- 太阳 -->
+    <div class="sun star-line">
+      <div class="su-box">
+        <img src="../assets/1.png" alt="" />
       </div>
-      <!-- 水星 -->
-      <div class="mercury star-line ball">
-        <!-- <div class="me-box">
+    </div>
+    <!-- 水星 -->
+    <div class="mercury star-line ball">
+      <!-- <div class="me-box">
           <img src="../assets/2.png" alt="" />
         </div> -->
-      </div>
-      <!-- 金星 -->
-      <div class="venus star-line ball ">
-        <!-- <div class="ve-box">
+    </div>
+    <!-- 金星 -->
+    <div class="venus star-line ball ">
+      <!-- <div class="ve-box">
           <img src="../assets/3.png" alt="" />
         </div> -->
-      </div>
-      <!-- 地球 -->
-      <div class="earth star-line ball">
-        <!-- <div class="ea-box">
+    </div>
+    <!-- 地球 -->
+    <div class="earth star-line ball">
+      <!-- <div class="ea-box">
           <img src="../assets/4.png" alt="" />
         </div> -->
-      </div>
-      <!-- 火星 -->
-      <div class="mars star-line ball">
-        <!-- <div class="ma-box">
+    </div>
+    <!-- 火星 -->
+    <div class="mars star-line ball">
+      <!-- <div class="ma-box">
           <img src="../assets/5.png" alt="" />
         </div> -->
-      </div>
-      <!-- 木星 -->
-      <div class="jupiter star-line ball">
-        <!-- <div class="ju-box">
+    </div>
+    <!-- 木星 -->
+    <div class="jupiter star-line ball">
+      <!-- <div class="ju-box">
           <img src="../assets/6.png" alt="" />
         </div> -->
-      </div>
-      <!-- 土星 -->
-      <div class="saturn star-line ball">
-        <!-- <div class="sa-box">
+    </div>
+    <!-- 土星 -->
+    <div class="saturn star-line ball">
+      <!-- <div class="sa-box">
           <img src="../assets/7.png" alt="" />
         </div> -->
-      </div>
-      <!-- 天王星 -->
-      <div class="uranus star-line ball">
-        <!-- <div class="ur-box">
+    </div>
+    <!-- 天王星 -->
+    <div class="uranus star-line ball">
+      <!-- <div class="ur-box">
           <img src="../assets/8.png" alt="" />
         </div> -->
-      </div>
-      <!-- 海王星 -->
-      <div class="neptune star-line ball">
-        <!-- <div class="ne-box">
+    </div>
+    <!-- 海王星 -->
+    <div class="neptune star-line ball">
+      <!-- <div class="ne-box">
           <img src="../assets/9.png" alt="" />
         </div> -->
-      </div>
+    </div>
   </div>
 </template>
 
@@ -123,7 +123,8 @@ export default {
   align-items: center;
   padding-top: 91vh;
   perspective: 300px;
-    perspective-origin: 50% top;
+  perspective-origin: 50% top;
+  transform-style: preserve-3d;
 }
 .co {
   width: 100%;
@@ -133,7 +134,8 @@ export default {
 .star-line {
   position: absolute;
   perspective: 300px;
-    perspective-origin: 50% top;
+  perspective-origin: 50% top;
+  transform-style: preserve-3d;
 }
 .ball {
   border-radius: 50%;
@@ -154,19 +156,17 @@ export default {
   height: 2rem;
   border: 1px solid olive;
   z-index: 10;
-        animation:rond 13s  linear infinite;
+  animation: rond 5s linear infinite;
 
   &::before {
     position: absolute;
     top: -0.07rem;
     left: 50%;
-    content: '';
+    content: "";
     width: 0.15rem;
     height: 0.15rem;
-    background: url("../assets/2.png") ;
+    background: url("../assets/2.png");
     background-size: 100% 100%;
-    -webkit-animation: rotate 11s linear infinite;
-  animation: rotate 11s linear infinite;
   }
 }
 // .me-box {
@@ -185,19 +185,17 @@ export default {
   height: 2.7rem;
   border: 1px solid darkgoldenrod;
   z-index: 9;
-        animation:rond 20s  linear infinite;
+  animation: rond 8s linear infinite;
 
   &::before {
     position: absolute;
     top: -0.125rem;
     left: 51%;
-    content: '';
+    content: "";
     width: 0.25rem;
     height: 0.25rem;
-    background: url("../assets/3.png") ;
+    background: url("../assets/3.png");
     background-size: 100% 100%;
--webkit-animation: rotate 11s linear infinite;
-  animation: rotate 11s linear infinite;
   }
 }
 // .ve-box {
@@ -216,19 +214,17 @@ export default {
   height: 3.5rem;
   border: 1px solid blue;
   z-index: 8;
-        animation:rond 30s  linear infinite;
+  animation: rond 10s linear infinite;
 
   &::before {
     position: absolute;
     top: -0.17rem;
     left: 52%;
-    content: '';
+    content: "";
     width: 0.39rem;
     height: 0.35rem;
-    background: url("../assets/4.png") ;
+    background: url("../assets/4.png");
     background-size: 100% 100%;
--webkit-animation: rotate 11s linear infinite;
-  animation: rotate 11s linear infinite;
   }
 }
 // .ea-box {
@@ -247,19 +243,17 @@ export default {
   height: 4.1rem;
   border: 1px solid orangered;
   z-index: 7;
-        animation:rond 40s  linear infinite;
+  animation: rond 20s linear infinite;
 
   &::before {
     position: absolute;
     top: -0.1rem;
     left: 53%;
-    content: '';
+    content: "";
     width: 0.29rem;
     height: 0.2rem;
-    background: url("../assets/5.png") ;
+    background: url("../assets/5.png");
     background-size: 100% 100%;
--webkit-animation: rotate 11s linear infinite;
-  animation: rotate 11s linear infinite;
   }
 }
 // .ma-box {
@@ -278,19 +272,17 @@ export default {
   height: 6.5rem;
   border: 1px solid yellow;
   z-index: 6;
-        animation:rond 50s  linear infinite;
+  animation: rond 45s linear infinite;
 
   &::before {
     position: absolute;
     top: -0.65rem;
     left: 55%;
-    content: '';
+    content: "";
     width: 1.45rem;
     height: 1.3rem;
-    background: url("../assets/6.png") ;
+    background: url("../assets/6.png");
     background-size: 100% 100%;
--webkit-animation: rotate 11s linear infinite;
-  animation: rotate 11s linear infinite;
   }
 }
 // .ju-box {
@@ -309,19 +301,17 @@ export default {
   height: 11rem;
   border: 1px solid tan;
   z-index: 5;
-        animation:rond 60s  linear infinite;
+  animation: rond 65s linear infinite;
 
   &::before {
     position: absolute;
     top: -0.375rem;
     left: 45%;
-    content: '';
+    content: "";
     width: 0.75rem;
     height: 0.9rem;
-    background: url("../assets/7.png") ;
+    background: url("../assets/7.png");
     background-size: 100% 100%;
--webkit-animation: rotate 11s linear infinite;
-  animation: rotate 11s linear infinite;
   }
 }
 // .sa-box {
@@ -340,19 +330,17 @@ export default {
   height: 15rem;
   border: 1px solid slategrey;
   z-index: 3;
-        animation:rond 70s  linear infinite;
+  animation: rond 180s linear infinite;
 
   &::before {
     position: absolute;
     top: -0.325rem;
     left: 35%;
-    content: '';
+    content: "";
     width: 0.65rem;
     height: 0.8rem;
-    background: url("../assets/9.png") ;
+    background: url("../assets/9.png");
     background-size: 100% 100%;
--webkit-animation: rotate 11s linear infinite;
-  animation: rotate 11s linear infinite;
   }
 }
 // .ne-box {
@@ -371,19 +359,18 @@ export default {
   height: 22rem;
   border: 1px solid skyblue;
   z-index: 4;
-      animation:rond 80s  linear infinite;
-
+  animation: rond 360s linear infinite;
 }
 .uranus::before {
-    position: absolute;
-    top: -0.285rem;
-    left: 40%;
-    content: '';
-    width: 0.75rem;
-    height: 0.57rem;
-    background: url("../assets/8.png") ;
-    background-size: 100% 100%;
-  }
+  position: absolute;
+  top: -0.285rem;
+  left: 40%;
+  content: "";
+  width: 0.75rem;
+  height: 0.57rem;
+  background: url("../assets/8.png");
+  background-size: 100% 100%;
+}
 // .ur-box {
 //   width: 0.35rem;
 //   height: 0.35rem;
@@ -396,11 +383,14 @@ export default {
 //   }
 // }
 
-@keyframes rond 
-  {
-     0% {transform : rotate(0deg);}
-     100% {transform : rotate(360deg);}
+@keyframes rond {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .title {
   padding: 0;
   margin: 0;
