@@ -1,5 +1,6 @@
 <template>
   <div id="matti" class="matti" ref="matti">
+    <Hi v-if="showhi" ref="hi" />
     <div class="mattii" ref="mattii">
       <div class="stickyDiv" ref="sticky">
         <div class="video" ref="video">
@@ -36,24 +37,45 @@
 </template>
 
 <script>
+import { getCurrentInstance } from '@vue/runtime-core';
+import Hi from "./hi.vue";
+
 export default {
-  name: "mattii",
+  name: "matti",
+  components: {
+    Hi,
+  },
+  data() {
+    return {
+      showhi: true,
+    };
+  },
   mounted() {
+    this.$nextTick(() => {
+      setTimeout(() => {
+        this.$refs.hi.$refs.hii.style.opacity = 0;
+        this.$refs.hi.$refs.hii.style.transition = "all 2s ease-in-out";
+        setTimeout(() => {
+          this.showhi = false;
+        }, 300);
+        setTimeout(() => {
+          this.$refs.p.style.backgroundPositionX = "0%";
+        }, 1000);
+      }, 2000);
+    });
+    // const internalInstance = getCurrentInstance()
+    // const $bus = internalInstance.appContext.config.globalProperties.$bus;
     this.matti = this.$refs.matti;
     this.matti.addEventListener("scroll", () => {
-      // console.log(this.$refs.text.offsetTop);
-      // if (this.$refs.text.offsetTop < 150) {
-      //   this.$refs.matti.overflowY = "hidden";
-      // }
       let scrolled =
         matti.scrollTop / (matti.scrollHeight - matti.clientHeight);
-      // const mattii = document.getElementById("mattii");
       this.$refs.icon.style.width = this.$refs.icon.style.height =
         document.documentElement.clientWidth *
           70 *
           (scrolled * scrolled * scrolled) +
         "px";
-
+        // $bus.emit('hideNav',scrolled)
+      this.$store.commit('setScrolled',scrolled)
       if (scrolled <= 0.1) {
         this.$refs.p.style.opacity = (0.1 - scrolled) / 0.1;
         this.$refs.p.style.marginTop = scrolled * 1000 * -1 + "px";

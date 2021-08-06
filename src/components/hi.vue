@@ -1,11 +1,9 @@
 <template>
-  <div class="hi" ref="hii">
-    <!-- <div class="one"></div>
-    <div class="two"></div>
-    <div class="three"></div>
-    <div class="four"></div> -->
-    <div class="hii">
-      <span> 嗨 </span>
+  <div class="contain">
+    <div class="hi" ref="hii">
+      <div class="hii">
+        <span> 嗨 </span>
+      </div>
     </div>
   </div>
 </template>
@@ -17,6 +15,14 @@ export default {
 </script>
 
 <style scoped>
+.contain {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .hi {
   position: absolute;
   width: 2rem;
@@ -32,37 +38,6 @@ export default {
   );
   transition: 2s opacity ease-in-out;
   animation: hii 3s linear infinite;
-}
-.one {
-  position: absolute;
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  border-top: 0.02rem solid #ffffff;
-}
-.two {
-  position: absolute;
-  border-radius: 50%;
-
-  width: 100%;
-  height: 100%;
-  border-right: 0.02rem solid blue;
-}
-.three {
-  position: absolute;
-  border-radius: 50%;
-
-  width: 100%;
-  height: 100%;
-  border-left: 0.02rem solid #005e7f;
-}
-.four {
-  position: absolute;
-  border-radius: 50%;
-
-  width: 100%;
-  height: 100%;
-  border-bottom: 0.02rem solid red;
 }
 .hii {
   position: relative;
